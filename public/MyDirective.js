@@ -8,7 +8,8 @@ module.directive('myDirective',function(){
         restrict:'AEC', //A=atribuutti, E=elementti, C=luokka
         scope:{
             temp:'@',
-            city:'@'
+            city:'@',
+            location:'@'
         },
         templateUrl:'myDirective.html',
         controller:'DirectiveController'
@@ -17,10 +18,10 @@ module.directive('myDirective',function(){
 
 module.controller('DirectiveController',function($scope,$resource){
     
-    var data = $resource('http://api.openweathermap.org/data/2.5/weather?q="Oulu,fi"').get(function(){
-
+    var data = $resource('http://api.openweathermap.org/data/2.5/weather?q=' + $scope.location).get(function(){
+        //console.log({{location}});
         console.log(data.main.temp);
-        $scope.temp = data.main.temp;
+        $scope.temp = parseFloat(data.main.temp - 273.15).toFixed(2);
         $scope.city = data.name;
     });
 });
