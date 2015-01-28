@@ -1,3 +1,24 @@
-<div>
-    <p>Here are our products</p>
+<div class='container'>
+    <h1>Mini Market</h1>
+    <table class='product_table'>
+    <div my-directive location='Kemi,fi'></div>
+    <!--my-directive></my-directive> <!-- --||-- elementtinä-->
+    <input type="text" ng-model='name'/>
+    <!--p class='my-directive'></p>  <!-- --||-- classina-->
+        <thread>
+            <tr>
+                <th>Product name</th>
+                <th>Product price</th>
+            </tr>
+        </thread>
+        <tbody>
+            <!--check if there are still products left-->
+            <tr ng-repeat='product in products'>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <a href="/add">Add products</a>
 </div>
