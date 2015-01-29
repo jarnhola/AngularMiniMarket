@@ -1,15 +1,16 @@
 <div class='container'>
     <h1>Mini Market</h1>
-    <div my-directive location='new_york,ny'></div>
+    <div my-directive location='Kemi,fi'></div>
     <input type="text" ng-model='name'/><br><br>
 
     <hr>
-    
-    <table class='product_table'>
+    <p ng-show='products.length === 0'>There are no products. Please add some product!</p>
+    <table ng-show='products.length > 0' class='product_table'>
         <thread>
             <tr>
                 <th>Product name</th>
                 <th>Product price</th>
+                <th>Delete</th>
             </tr>
         </thread>
         <tbody>
@@ -17,9 +18,10 @@
             <tr ng-repeat='product in products'>
                 <td>{{product.name}}</td>
                 <td>{{product.price}}</td>
+                <td><button ng-click='deleteProduct($index)'>Delete</button></td>
             </tr>
         </tbody>
     </table>
     <br>
-    <a href="/add">Add products</a>
+    <button ng-click='next()'>Add product</button>
 </div>

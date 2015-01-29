@@ -4,15 +4,17 @@ var router = express.Router();
 
 //Following are REST app methods/routes
 
+var dummy=[];
+
 router.get('/',function(req,res){
-    var dummy=[{name:'Maito',price:'1,05 €'},
-               {name:'Coffee',price:'4,95 €'}];
-    
+
     res.send(dummy);
 });
 
 router.post('/',function(req,res){
     
+    dummy.push(req.body);
+    res.send('Added to server array');
 });
 
 router.put('/',function(req,res){
@@ -21,6 +23,8 @@ router.put('/',function(req,res){
 
 router.delete('/',function(req,res){
     
+    dummy.splice(req.query.id,1);
+    res.send("We are ok!");
 });
 
 module.exports = router;
