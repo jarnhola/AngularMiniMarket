@@ -1,0 +1,32 @@
+<div class='container' align="center">
+    <h1>Mini-Market</h1>
+    
+    <!-- My DIrective -->
+    <!--div my-directive location='Oulu,fi'></div>
+    <input type="text" ng-model='name'/><br><br-->
+
+    <hr>
+    <p ng-show='products.length === 0'>There are no products. Please add some product!</p>
+    <table ng-show='products.length > 0' class='product_table'>
+        <thread>
+            <tr>
+                <th>Product name</th>
+                <th>Product price</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+        </thread>
+        <tbody>
+            <!--check if there are still products left-->
+            <tr ng-repeat='product in products'>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td><button ng-click='deleteProduct($index)'>Delete</button></td>
+                <td><button ng-click='updateProduct($index)'>Update</button></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <button ng-click='next()'>Add product</button>
+</div>
+<div></div>

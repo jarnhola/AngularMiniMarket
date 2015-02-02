@@ -1,0 +1,13 @@
+<div>
+    <form class="formi">
+        <fieldset>
+            <legend>Add products</legend>
+            <input ng_model="product.name" type="text" placeholder="Product name"/>
+            <br><br>
+            <input ng_model="product.price" type="text" placeholder="Product price"/>
+            <br><br>
+            <button ng-click="product.post_product()">Add product</button>
+            <button ng-click='product.return()'>Back</button>
+        </fieldset>
+    </form>
+</div>

@@ -19,7 +19,7 @@ app.use(function(req,res,next){
 app.use('/data',user);
 
 //Use static files from public folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/')));
 app.use("/add",express.static(path.join(__dirname, 'public'))); //tällä puukotuksella saadaan refresh toimimaan...
 
 app.listen(3000);
